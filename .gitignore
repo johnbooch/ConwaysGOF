@@ -1,2 +1,7 @@
 *.pyc
 .DS_Store
+*.docx
+*.png
+*.pptx
+time/
+*.pdf

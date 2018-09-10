@@ -25,9 +25,6 @@ class GameOfLife(object):
         if self.updater == None:
             raise GOFException("Updater not initialized")
         self.board = Board(self.updater.update, world=self.opts.world) 
-
-    def addCommandLineOpts(self, parser):
-        self.parser = ArgumentParser(parents=[self.parser, parser])
     
     def getCommandLineOpts(self):
         self.opts = self.parser.parse_args()

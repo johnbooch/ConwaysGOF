@@ -8,14 +8,14 @@ def createDefaultParser():
     parser = ArgumentParser()
 
     parser.add_argument('-r', '--rows',
-                        help='set # of rows in the world',
+                        help='set number of rows in the world',
                         action='store',
                         type=int,
                         dest='rows',
                         default=50)
 
     parser.add_argument('-c', '--cols',
-                        help='set # of columns in the world',
+                        help='set number of columns in the world',
                         action='store',
                         type=int,
                         dest='cols',
@@ -26,7 +26,7 @@ def createDefaultParser():
                         action='store',
                         type=str,
                         dest='world',
-                        default='empty')
+                        default='random')
 
     parser.add_argument('-p', '--pattern',
                         help='pattern to be used in pattern world generation. See patterns file',
@@ -34,9 +34,16 @@ def createDefaultParser():
                         type=str,
                         dest='pattern',
                         default='glider')
+
+    parser.add_argument('-perc', '--percentage',
+                    help='percentage of world to be populated on random world generation',
+                    action='store',
+                    type=float,
+                    dest='percentage',
+                    default=10.0)
     
     parser.add_argument('-xy', '--xy',
-                        help='XY coords where pattern will be inserted',
+                        help='(X,Y) coords where pattern will be inserted',
                         action='store',
                         type=int,
                         nargs=2,
@@ -44,13 +51,13 @@ def createDefaultParser():
                         default=[0,0])
     
     parser.add_argument('-rle','--rle',
-                        help='load RLE file',
+                        help='path of RLE file to be loaded',
                         action='store',
                         type=str,
                         dest='rle')
 
     parser.add_argument('-a', '--algorithm',
-                        help='update algorithm to be used. Options are: linear, conv',
+                        help='update algorithm to be used. Options are: linear, set, roll, conv',
                         action='store',
                         type=str,
                         default="linear",
@@ -69,4 +76,9 @@ def createDefaultParser():
                         type=str,
                         dest='cmap',
                         default='binary')
+    
+    parser.add_argument('-t', '--time',
+                    help='generates output file for timing of selected update algorithm',
+                    action='store_true',
+                dest='time')
     return parser

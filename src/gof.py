@@ -1,6 +1,5 @@
 """
  Author: John  Buccieri
-
    A simple implementation of Conway's Game of Life
 """
 import sys
@@ -9,9 +8,6 @@ import traceback
 from GameOfLife import GameOfLife
 
 def main():
-    """
-    The main function -- everything starts here!
-    """
     gof = GameOfLife()
     try:
         gof.run()
